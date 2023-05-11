@@ -27,7 +27,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  MainTab = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
+  MainTab = GWindow.getWindow(this, "Window title", 0, 0, 250, 400, JAVA2D);
   MainTab.noLoop();
   MainTab.setActionOnClose(G4P.KEEP_OPEN);
   MainTab.addDrawHandler(this, "win_draw1");
