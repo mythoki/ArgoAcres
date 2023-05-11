@@ -1,7 +1,7 @@
 void setup() {
   size(900, 650);
-  String name = "Hi";
   drawBackground();
+  print("cs");
 }
 
 void drawBackground() {
