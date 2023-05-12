@@ -1,5 +1,8 @@
+import g4p_controls.*;
+
 void setup() {
   size(900, 650);
+  createGUI();
   String name = "Hi";
   drawBackground();
 }
@@ -20,6 +23,7 @@ void drawBackground() {
   circle(600, 575, 40);
   circle(75, 575, 40);
   
+  // MAIN
   fill(216, 241, 242);
   rect(650, 75, 225, 500);
   //rect(690
