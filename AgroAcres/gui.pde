@@ -18,37 +18,66 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
   appc.background(230);
 } //_CODE_:MainTab:504404:
 
-public void cropSlider(GCustomSlider source, GEvent event) { //_CODE_:crops:572143:
-  println("cropSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
-} //_CODE_:crops:572143:
-
 public void tempSlider(GCustomSlider source, GEvent event) { //_CODE_:temp:211877:
   println("temp - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:temp:211877:
 
-public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:235106:
+public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
   println("RW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:RW:235106:
+} //_CODE_:CloudyW:235106:
 
-public void cloudWeather(GOption source, GEvent event) { //_CODE_:CW:515739:
+public void heatWeather(GOption source, GEvent event) { //_CODE_:HWW:515739:
   println("CW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:CW:515739:
+} //_CODE_:HWW:515739:
 
-public void sunWeather(GOption source, GEvent event) { //_CODE_:SW:791619:
+public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:791619:
   println("SW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:SW:791619:
+} //_CODE_:RW:791619:
 
-public void stormyWeather(GOption source, GEvent event) { //_CODE_:SSW:627880:
+public void snowyWeather(GOption source, GEvent event) { //_CODE_:SW:627880:
   println("SSW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:SSW:627880:
+} //_CODE_:SW:627880:
 
-public void snowWeather(GOption source, GEvent event) { //_CODE_:SNW:858856:
+public void stormyWeather(GOption source, GEvent event) { //_CODE_:STW:858856:
   println("SNW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:SNW:858856:
+} //_CODE_:STW:858856:
 
-public void heatWeather(GOption source, GEvent event) { //_CODE_:HW:543056:
+public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:
   println("HW - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:HW:543056:
+} //_CODE_:SUW:543056:
+
+public void Co_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
+  println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
+} //_CODE_:Corn:591166:
+
+public void O_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
+  println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
+} //_CODE_:Oats:608444:
+
+public void W_clicked(GCheckbox source, GEvent event) { //_CODE_:checkbox1:206827:
+  println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
+} //_CODE_:checkbox1:206827:
+
+public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
+  if( clicked ) {
+    clicked = false;
+    DNbutton.setText("Night");
+    
+  }
+  
+  else {
+    clicked = true;
+    DNbutton.setText("Day");
+  }
+} //_CODE_:DNbutton:688493:
+
+public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
+  println("Manbutton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:Manbutton:763312:
+
+public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Resetbutton:237767:
+  println("Resetbutton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:Resetbutton:237767:
 
 
 
@@ -59,24 +88,19 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  MainTab = GWindow.getWindow(this, "Window title", 0, 0, 400, 350, JAVA2D);
+  MainTab = GWindow.getWindow(this, "Window title", 0, 0, 300, 370, JAVA2D);
   MainTab.noLoop();
   MainTab.setActionOnClose(G4P.KEEP_OPEN);
   MainTab.addDrawHandler(this, "win_draw1");
-  crops = new GCustomSlider(MainTab, 50, 30, 100, 40, "grey_blue");
-  crops.setLimits(0.5, 0.0, 1.0);
-  crops.setNumberFormat(G4P.DECIMAL, 2);
-  crops.setOpaque(false);
-  crops.addEventHandler(this, "cropSlider");
-  C_label = new GLabel(MainTab, 60, 20, 80, 20);
+  C_label = new GLabel(MainTab, 20, 20, 100, 20);
   C_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  C_label.setText("Crop Slider");
+  C_label.setText("Crops");
   C_label.setOpaque(false);
-  W_label = new GLabel(MainTab, 210, 20, 100, 20);
+  W_label = new GLabel(MainTab, 150, 20, 120, 20);
   W_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   W_label.setText("Weather");
   W_label.setOpaque(false);
-  temp = new GCustomSlider(MainTab, 150, 120, 159, 100, "grey_blue");
+  temp = new GCustomSlider(MainTab, 260, 200, 159, 100, "grey_blue");
   temp.setShowLimits(true);
   temp.setRotation(PI/2, GControlMode.CORNER);
   temp.setLimits(0.5, -35.0, 35.0);
@@ -86,63 +110,102 @@ public void createGUI(){
   temp.setNumberFormat(G4P.DECIMAL, 2);
   temp.setOpaque(false);
   temp.addEventHandler(this, "tempSlider");
-  T_label = new GLabel(MainTab, 60, 100, 80, 20);
+  T_label = new GLabel(MainTab, 150, 180, 120, 20);
   T_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   T_label.setText("Temperature");
   T_label.setOpaque(false);
   weather = new GToggleGroup();
-  RW = new GOption(MainTab, 200, 40, 120, 20);
+  CloudyW = new GOption(MainTab, 150, 40, 120, 20);
+  CloudyW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  CloudyW.setText("Cloudy");
+  CloudyW.setOpaque(false);
+  CloudyW.addEventHandler(this, "cloudWeather");
+  HWW = new GOption(MainTab, 150, 60, 120, 20);
+  HWW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  HWW.setText("Heatwave");
+  HWW.setOpaque(false);
+  HWW.addEventHandler(this, "heatWeather");
+  RW = new GOption(MainTab, 150, 80, 120, 20);
   RW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   RW.setText("Rain");
   RW.setOpaque(false);
   RW.addEventHandler(this, "rainWeather");
-  CW = new GOption(MainTab, 200, 60, 120, 20);
-  CW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  CW.setText("Cloudy");
-  CW.setOpaque(false);
-  CW.addEventHandler(this, "cloudWeather");
-  SW = new GOption(MainTab, 200, 80, 120, 20);
+  SW = new GOption(MainTab, 150, 100, 120, 20);
   SW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  SW.setText("Sunny");
+  SW.setText("Snowy");
   SW.setOpaque(false);
-  SW.addEventHandler(this, "sunWeather");
-  SSW = new GOption(MainTab, 200, 100, 120, 20);
-  SSW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  SSW.setText("Stormy");
-  SSW.setOpaque(false);
-  SSW.addEventHandler(this, "stormyWeather");
-  SNW = new GOption(MainTab, 200, 120, 120, 20);
-  SNW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  SNW.setText("Snowy");
-  SNW.setOpaque(false);
-  SNW.addEventHandler(this, "snowWeather");
-  HW = new GOption(MainTab, 200, 140, 120, 20);
-  HW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  HW.setText("Heatwave");
-  HW.setOpaque(false);
-  HW.addEventHandler(this, "heatWeather");
+  SW.addEventHandler(this, "snowyWeather");
+  STW = new GOption(MainTab, 150, 120, 120, 20);
+  STW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  STW.setText("Stormy");
+  STW.setOpaque(false);
+  STW.addEventHandler(this, "stormyWeather");
+  SUW = new GOption(MainTab, 150, 140, 120, 20);
+  SUW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  SUW.setText("Sunny");
+  SUW.setOpaque(false);
+  SUW.addEventHandler(this, "sunnyWeather");
+  weather.addControl(CloudyW);
+  CloudyW.setSelected(true);
+  weather.addControl(HWW);
   weather.addControl(RW);
-  RW.setSelected(true);
-  weather.addControl(CW);
   weather.addControl(SW);
-  weather.addControl(SSW);
-  weather.addControl(SNW);
-  weather.addControl(HW);
+  weather.addControl(STW);
+  weather.addControl(SUW);
+  Corn = new GCheckbox(MainTab, 20, 40, 100, 20);
+  Corn.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Corn.setText("Corn");
+  Corn.setOpaque(false);
+  Corn.addEventHandler(this, "Co_clicked");
+  Oats = new GCheckbox(MainTab, 20, 60, 100, 20);
+  Oats.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Oats.setText("Oats");
+  Oats.setOpaque(false);
+  Oats.addEventHandler(this, "O_clicked");
+  checkbox1 = new GCheckbox(MainTab, 20, 80, 100, 20);
+  checkbox1.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  checkbox1.setText("Wheat");
+  checkbox1.setOpaque(false);
+  checkbox1.addEventHandler(this, "W_clicked");
+  DNbutton = new GButton(MainTab, 30, 120, 80, 30);
+  DNbutton.setText("Night");
+  DNbutton.addEventHandler(this, "dN_buttonClicked");
+  TC_label = new GLabel(MainTab, 120, 200, 80, 20);
+  TC_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  TC_label.setText("Cold");
+  TC_label.setOpaque(false);
+  TH_label = new GLabel(MainTab, 120, 340, 80, 20);
+  TH_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  TH_label.setText("Hot");
+  TH_label.setOpaque(false);
+  Manbutton = new GButton(MainTab, 30, 330, 80, 30);
+  Manbutton.setText("Back to Manual");
+  Manbutton.addEventHandler(this, "Man_buttonClicked");
+  Resetbutton = new GButton(MainTab, 30, 290, 80, 30);
+  Resetbutton.setText("Reset");
+  Resetbutton.addEventHandler(this, "Reset_buttonClicked");
   MainTab.loop();
 }
 
 // Variable declarations 
 // autogenerated do not edit
 GWindow MainTab;
-GCustomSlider crops; 
 GLabel C_label; 
 GLabel W_label; 
 GCustomSlider temp; 
 GLabel T_label; 
 GToggleGroup weather; 
+GOption CloudyW; 
+GOption HWW; 
 GOption RW; 
-GOption CW; 
 GOption SW; 
-GOption SSW; 
-GOption SNW; 
-GOption HW; 
+GOption STW; 
+GOption SUW; 
+GCheckbox Corn; 
+GCheckbox Oats; 
+GCheckbox checkbox1; 
+GButton DNbutton; 
+GLabel TC_label; 
+GLabel TH_label; 
+GButton Manbutton; 
+GButton Resetbutton; 
