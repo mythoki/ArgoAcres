@@ -4,9 +4,12 @@ boolean clicked = true;
 void setup() {
   size(900, 650);
   createGUI();
-  drawBackground();
+  //drawBackground();
   Manual m = new Manual();
   m.showCropInfo();
+}
+void draw(){
+  background(255);
 }
 
 void drawBackground() {
