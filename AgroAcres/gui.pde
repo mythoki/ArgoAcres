@@ -54,9 +54,9 @@ public void O_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
   println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
 } //_CODE_:Oats:608444:
 
-public void W_clicked(GCheckbox source, GEvent event) { //_CODE_:checkbox1:206827:
+public void W_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
   println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
-} //_CODE_:checkbox1:206827:
+} //_CODE_:Wheat:206827:
 
 public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
   if( clicked ) {
@@ -72,12 +72,16 @@ public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:6
 } //_CODE_:DNbutton:688493:
 
 public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
-  println("Manbutton - GButton >> GEvent." + event + " @ " + millis());
+    argoScreen = 0;
 } //_CODE_:Manbutton:763312:
 
 public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Resetbutton:237767:
-  println("Resetbutton - GButton >> GEvent." + event + " @ " + millis());
+  clear();
 } //_CODE_:Resetbutton:237767:
+
+public void season_click(GDropList source, GEvent event) { //_CODE_:Seasons:246162:
+  println("Seasons - GDropList >> GEvent." + event + " @ " + millis());
+} //_CODE_:Seasons:246162:
 
 
 
@@ -95,11 +99,13 @@ public void createGUI(){
   C_label = new GLabel(MainTab, 20, 20, 100, 20);
   C_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   C_label.setText("Crops");
-  C_label.setOpaque(false);
+  C_label.setLocalColorScheme(GCScheme.RED_SCHEME);
+  C_label.setOpaque(true);
   W_label = new GLabel(MainTab, 150, 20, 120, 20);
   W_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   W_label.setText("Weather");
-  W_label.setOpaque(false);
+  W_label.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  W_label.setOpaque(true);
   temp = new GCustomSlider(MainTab, 260, 200, 159, 100, "grey_blue");
   temp.setShowLimits(true);
   temp.setRotation(PI/2, GControlMode.CORNER);
@@ -108,82 +114,101 @@ public void createGUI(){
   temp.setStickToTicks(true);
   temp.setShowTicks(true);
   temp.setNumberFormat(G4P.DECIMAL, 2);
+  temp.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   temp.setOpaque(false);
   temp.addEventHandler(this, "tempSlider");
   T_label = new GLabel(MainTab, 150, 180, 120, 20);
   T_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   T_label.setText("Temperature");
-  T_label.setOpaque(false);
+  T_label.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  T_label.setOpaque(true);
   weather = new GToggleGroup();
   CloudyW = new GOption(MainTab, 150, 40, 120, 20);
   CloudyW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   CloudyW.setText("Cloudy");
-  CloudyW.setOpaque(false);
+  CloudyW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  CloudyW.setOpaque(true);
   CloudyW.addEventHandler(this, "cloudWeather");
   HWW = new GOption(MainTab, 150, 60, 120, 20);
   HWW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   HWW.setText("Heatwave");
-  HWW.setOpaque(false);
+  HWW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  HWW.setOpaque(true);
   HWW.addEventHandler(this, "heatWeather");
   RW = new GOption(MainTab, 150, 80, 120, 20);
   RW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   RW.setText("Rain");
-  RW.setOpaque(false);
+  RW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  RW.setOpaque(true);
   RW.addEventHandler(this, "rainWeather");
   SW = new GOption(MainTab, 150, 100, 120, 20);
   SW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   SW.setText("Snowy");
-  SW.setOpaque(false);
+  SW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  SW.setOpaque(true);
   SW.addEventHandler(this, "snowyWeather");
   STW = new GOption(MainTab, 150, 120, 120, 20);
   STW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   STW.setText("Stormy");
-  STW.setOpaque(false);
+  STW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  STW.setOpaque(true);
   STW.addEventHandler(this, "stormyWeather");
   SUW = new GOption(MainTab, 150, 140, 120, 20);
   SUW.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   SUW.setText("Sunny");
-  SUW.setOpaque(false);
+  SUW.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  SUW.setOpaque(true);
   SUW.addEventHandler(this, "sunnyWeather");
   weather.addControl(CloudyW);
-  CloudyW.setSelected(true);
   weather.addControl(HWW);
   weather.addControl(RW);
   weather.addControl(SW);
   weather.addControl(STW);
   weather.addControl(SUW);
+  SUW.setSelected(true);
   Corn = new GCheckbox(MainTab, 20, 40, 100, 20);
   Corn.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   Corn.setText("Corn");
-  Corn.setOpaque(false);
+  Corn.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Corn.setOpaque(true);
   Corn.addEventHandler(this, "Co_clicked");
   Oats = new GCheckbox(MainTab, 20, 60, 100, 20);
   Oats.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   Oats.setText("Oats");
-  Oats.setOpaque(false);
+  Oats.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Oats.setOpaque(true);
   Oats.addEventHandler(this, "O_clicked");
-  checkbox1 = new GCheckbox(MainTab, 20, 80, 100, 20);
-  checkbox1.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  checkbox1.setText("Wheat");
-  checkbox1.setOpaque(false);
-  checkbox1.addEventHandler(this, "W_clicked");
-  DNbutton = new GButton(MainTab, 30, 120, 80, 30);
+  Wheat = new GCheckbox(MainTab, 20, 80, 100, 20);
+  Wheat.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Wheat.setText("Wheat");
+  Wheat.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Wheat.setOpaque(true);
+  Wheat.addEventHandler(this, "W_clicked");
+  DNbutton = new GButton(MainTab, 30, 115, 80, 30);
   DNbutton.setText("Night");
+  DNbutton.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   DNbutton.addEventHandler(this, "dN_buttonClicked");
   TC_label = new GLabel(MainTab, 120, 200, 80, 20);
   TC_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   TC_label.setText("Cold");
-  TC_label.setOpaque(false);
+  TC_label.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  TC_label.setOpaque(true);
   TH_label = new GLabel(MainTab, 120, 340, 80, 20);
   TH_label.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   TH_label.setText("Hot");
-  TH_label.setOpaque(false);
+  TH_label.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  TH_label.setOpaque(true);
   Manbutton = new GButton(MainTab, 30, 330, 80, 30);
   Manbutton.setText("Back to Manual");
+  Manbutton.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   Manbutton.addEventHandler(this, "Man_buttonClicked");
   Resetbutton = new GButton(MainTab, 30, 290, 80, 30);
   Resetbutton.setText("Reset");
   Resetbutton.addEventHandler(this, "Reset_buttonClicked");
+  Seasons = new GDropList(MainTab, 20, 160, 100, 125, 4, 10);
+  Seasons.setItems(loadStrings("list_246162"), 1);
+  Seasons.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  Seasons.addEventHandler(this, "season_click");
   MainTab.loop();
 }
 
@@ -203,9 +228,10 @@ GOption STW;
 GOption SUW; 
 GCheckbox Corn; 
 GCheckbox Oats; 
-GCheckbox checkbox1; 
+GCheckbox Wheat; 
 GButton DNbutton; 
 GLabel TC_label; 
 GLabel TH_label; 
 GButton Manbutton; 
 GButton Resetbutton; 
+GDropList Seasons; 

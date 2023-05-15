@@ -1,18 +1,36 @@
 import g4p_controls.*;
+
 boolean clicked = true;
+int argoScreen = 0;
 
 void setup() {
   size(900, 650);
   createGUI();
-  //drawBackground();
-  Manual m = new Manual();
-  m.showCropInfo();
 }
-void draw(){
-  background(255);
+
+void draw(){  
+  if (argoScreen == 0){
+   Manual m = new Manual();
+   m.showCropInfo();
+  }
+  else if (argoScreen == 1){
+    drawBackground();
+  }
+}
+
+void startProgram(){
+  argoScreen = 1;
+}
+
+void mousePressed(){
+  if ( argoScreen == 0){
+    startProgram();
+  }
 }
 
 void drawBackground() {
+  background(255,100,100);
+ 
   //if season 
   //draw this
   
@@ -37,4 +55,8 @@ void drawBackground() {
   circle(670, 575, 40);
   circle(855, 575, 40);
  
+}
+
+void clear(){
+//add code to clear screen
 }

@@ -31,6 +31,5 @@ class Manual {
     textSize(15);
     text("Wheat grows best in warm temperatures with moderate rain.", indent, (height/2)+nextLine);
     text("They should be planted in clay loam in spring or fall to be harvested in the summer.", indent, (height/2)+nextLine+nextTitle); 
-    
   }
 }
