@@ -5,7 +5,6 @@ import g4p_controls.*;
 
 void setup() {
   size(900, 650);
-  createGUI();
   drawBackground();
   Manual m = new Manual();
   m.showCropInfo();
