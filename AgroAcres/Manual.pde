@@ -5,6 +5,7 @@ class Manual {
 }
 
 void showCropInfo(){
+  background(212, 207, 41);
   int nextLine = 15;
   int nextTitle = 30;
   int indent = 75;
@@ -16,12 +17,12 @@ void showCropInfo(){
   
   textSize(15);
   text("Corn grows best in warm, sunny weather with moderate rain.", indent, height/5+nextTitle);
-  text("For best results, plant in loam soil between around springtime to harvest in early fall.",indent, height/2 + nextLine+nextTitle);
+  text("For best results, plant in loam soil between around springtime to harvest in early fall.", indent, height/5 + nextLine+nextTitle);
   
   // PRINTING OAT CROP INFORMATION
   textSize(20);
   textAlign(LEFT);
-  text("OAT", indent, height/4); 
+  text("OAT", indent, height/3); 
   
   textSize(15);
   text("Oats also prefer warm, sunny weather with moderate rain. They grow best in fertile, well-drained soil.", indent, (height/2)+2*nextLine);  
@@ -30,7 +31,7 @@ void showCropInfo(){
   // PRINTING WHEAT CROP INFORMATION
   textSize(20);
   textAlign(LEFT);
-  text("WHEAT", indent, height/3); 
+  text("WHEAT", indent, height/2); 
   
   text("Wheat grows best in warm temperatures with moderate rain.", indent, (height/2)+4*nextLine);
   text("They should be planted in clay loam in spring or fall to be harvested in the summer.", indent, (height/2)+5*nextLine); 
