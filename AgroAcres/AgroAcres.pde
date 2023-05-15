@@ -22,7 +22,7 @@ void drawBackground() {
   
   fill(216, 241, 242);
   rect(650, 75, 225, 500);
-  rect(690
+  rect(690, 350, 75, 250);
   circle(670, 75, 40);
   circle(855, 75, 40);
   circle(670, 575, 40);
