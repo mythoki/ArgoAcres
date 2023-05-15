@@ -33,5 +33,5 @@ void drawBackground() {
   circle(855, 75, 40);
   circle(670, 575, 40);
   circle(855, 575, 40);
-  
+ 
 }
