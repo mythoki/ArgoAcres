@@ -7,9 +7,12 @@ void setup() {
   size(900, 650);
   createGUI();
   drawBackground();
+  Manual m = new Manual();
+  m.showCropInfo();
 }
 
 void drawBackground() {
+  
   //if season 
   //draw this
   
