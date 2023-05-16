@@ -1,9 +1,14 @@
 class Manual {
   void showCropInfo(){
-    background(212, 207, 41);
+    background(212, 100, 41);
     int nextLine = 15;
     int nextTitle = 30;
     int indent = 75;
+    
+    // title
+    textSize(35);
+    textAlign(CENTER);
+    text("FARMER'S ALMANAC", width/2, 100);
     
     // PRINTING CORN CROP INFORMATION 
     textSize(20);
