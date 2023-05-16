@@ -1,6 +1,7 @@
 class Manual {
   void showCropInfo(){
     background(212, 100, 41);
+    fill(255);
     int nextLine = 15;
     int nextTitle = 30;
     int indent = 75;
