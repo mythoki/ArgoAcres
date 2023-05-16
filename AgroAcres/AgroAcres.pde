@@ -4,30 +4,36 @@ boolean clicked = true;
 int argoScreen = 0;
 int season = 0;
 int crop = 0;
+PFont mono; 
 
 void setup() {
   size(900, 650);
   createGUI();
+  mono = loadFont("Serif.bold-48.vlw"); //text font file
+  textFont(mono);
 }
 
 void draw() {  
   if (argoScreen == 0) {
+    Title t = new Title();
+    t.drawTitleScreen();
+  } else if (argoScreen == 1) {
     Manual m = new Manual();
     m.showCropInfo();
-  } else if (argoScreen == 1) {
+  } else if (argoScreen == 2) {
     drawBackground();
   }
 }
 
 void startProgram() {
-  argoScreen = 1;
+  argoScreen = 2;
 }
 
-void mousePressed() {
-  if ( argoScreen == 0) {
-    startProgram();
-  }
-}
+//void mousePressed() {
+//   if ( argoScreen == 1) {
+//    startProgram();
+//  }
+//}
 
 void drawBackground() {
   background(255, 100, 100);
@@ -37,6 +43,7 @@ void drawBackground() {
 
   //if crop
   //draw this soil
+
   if (season == 0) { //spring
     Season s = new Season();
     s.colourSeason();
@@ -97,5 +104,5 @@ void drawBackground() {
 }
 
 void clear() {
-  //add code to clear screen
+startProgram();
 }
