@@ -71,35 +71,34 @@ public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:6
 
 public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
   argoScreen = 1;
-  
+
   if ( clicked ) {
     clicked = true;
     Resetbutton.setText("Back to home");
   }
-  
 } //_CODE_:Manbutton:763312:
 
 public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Resetbutton:237767:
-   clear();
-   if ( clicked) {
+  clear();
+  if ( clicked) {
     clicked = false;
     Resetbutton.setText("Reset");
   }
 } //_CODE_:Resetbutton:237767:
 
 public void season_click(GDropList source, GEvent event) { //_CODE_:SeasonDrop:246162:
-    
-    // if ( season == 1) //summer
-    //  Seasons.setText("Summer");
-    //  background(50, 168, 82);
+  String s = SeasonDrop.getSelectedText();
+  if (s.equals("Spring")) //spring
+    bgColour = color(93, 194, 50);
 
-    // if (season == 2) //winter
-    //  Seasons.setText("Winter");
-    //  background(255);
+  if (s.equals("Summer")) //summer
+    bgColour = color(50, 168, 82);
 
-    // if (season == 3) //autumn 
-    // Seasons.setText("Autumn");
-    //  background(112, 60, 34);
+  if (s.equals("Winter")) //winter
+    bgColour = color(150,200,233);
+
+  if (s.equals("Autumn")) //autumn 
+    bgColour = color(200, 60, 40);
 } //_CODE_:SeasonDrop:246162:
 
 
