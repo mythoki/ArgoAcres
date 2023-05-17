@@ -88,5 +88,6 @@ void drawBackground() {
 
 void clear() {
 startProgram();
-
+bgColour = color(93, 194, 50);
+  
 }
