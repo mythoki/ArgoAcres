@@ -5,9 +5,12 @@ int argoScreen = 0;
 int season = 0;
 int crop = 0;
 PFont mono; 
+color bgColour = color(93, 194, 50);
+
 
 void setup() {
   size(900, 650);
+  //noLoop();
   createGUI();
   mono = loadFont("Serif.bold-48.vlw"); //text font file
   textFont(mono);
@@ -36,27 +39,7 @@ void startProgram() {
 //}
 
 void drawBackground() {
-  background(255, 100, 100);
-
-  //if season 
-  //draw this
-
-  //if crop
-  //draw this soil
-
-  if (season == 0) { //spring
-    Season s = new Season();
-    s.colourSeason();
-  } else if (season == 1) { //summer
-    Season s = new Season();
-    s.colourSeason();
-  } else if (season == 2) { //winter
-    Season s = new Season();
-    s.colourSeason();
-  } else if (season == 3) {//autumn 
-    Season s = new Season();
-    s.colourSeason();
-  }
+  background( bgColour );
 
   //boxes
   noStroke();
@@ -105,4 +88,5 @@ void drawBackground() {
 
 void clear() {
 startProgram();
+
 }
