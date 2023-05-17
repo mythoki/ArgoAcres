@@ -19,7 +19,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 } //_CODE_:MainTab:504404:
 
 public void tempSlider(GCustomSlider source, GEvent event) { //_CODE_:temp:211877:
-  println("temp - GCustomSlider >> GEvent." + event + " @ " + millis());
+  temperature = temp.getValueF();
 } //_CODE_:temp:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
@@ -47,7 +47,8 @@ public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:
 } //_CODE_:SUW:543056:
 
 public void Co_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
-  println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
+  Crop c = new Crop("Corn", 15, 28);
+  myCrops.add(c);
 } //_CODE_:Corn:591166:
 
 public void O_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:

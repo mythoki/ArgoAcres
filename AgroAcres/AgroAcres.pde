@@ -3,8 +3,11 @@ import g4p_controls.*;
 boolean clicked = true;
 int argoScreen = 0;
 int season = 0;
+float temperature = 20;
 int crop = 0;
 PFont mono; 
+//Crop c1, c2, c3;
+ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
 void setup() {
   size(900, 650);
@@ -23,6 +26,8 @@ void draw() {
   } else if (argoScreen == 2) {
     drawBackground();
   }
+  
+  drawCrops();
 }
 
 void startProgram() {
@@ -101,6 +106,20 @@ void drawBackground() {
 
     rowX += 87;
   }
+}
+
+void drawCrops() {
+  
+  
+  if (crop == 0)  //corn
+  
+  
+  if (crop == 1)  //wheat
+  
+  
+  if (crop == 2)  //oats
+  
+  
 }
 
 void clear() {
