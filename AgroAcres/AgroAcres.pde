@@ -93,17 +93,7 @@ void drawBackground() {
 }
 
 void drawCrops() {
-  
-  
-  if (crop == 0)  //corn
-  
-  
-  if (crop == 1)  //wheat
-  
-  
-  if (crop == 2)  //oats
-  
-  
+
 }
 
 void clear() {
