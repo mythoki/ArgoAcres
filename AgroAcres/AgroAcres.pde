@@ -68,6 +68,8 @@ void draw() {
     drawBackground();
     drawSunMoon();
     drawCrops();
+    Weather t = new Weather();
+    t.selectWeather();
   }  
 }
 

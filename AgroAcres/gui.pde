@@ -57,7 +57,7 @@ public void Oats_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
 
 public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
   println("checkbox1 - GCheckbox >> GEvent." + event + " @ " + millis());
-
+}
 public void Co_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
   Crop c = new Crop("Corn", 20, 30);
   myCrops.add(c);
