@@ -7,6 +7,7 @@ PFont mono;
 // IMPORTING IMAGES
 PImage imgSun, imgMoon;
 PImage imgCloudy, imgHeatwave, imgRain, imgSnow, imgStormy;
+PImage imgCorn, imgWheat, imgOats;
 
 // UNADJUSTABLE VARIABLES
 boolean clicked = true; //for GUI buttons 
@@ -24,37 +25,50 @@ int crop = 0;
 //Crop c1, c2, c3;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
-
+// SETUP
 void setup() {
   size(900, 650);
   createGUI();
+  
+  // LOADING FONTS
   mono = loadFont("Serif.bold-48.vlw"); //text font file
   textFont(mono);
 
-  //sun & moon image
+  // LOADING IMAGES
   imgSun = loadImage("sun.png");
   imgMoon = loadImage("moon.png");
+  
   imgCloudy = loadImage("cloudy.png");
   imgHeatwave = loadImage("heatwave.png");
   imgRain = loadImage("rain.png");
   imgSnow = loadImage("snow.png"); 
   imgStormy = loadImage("stormy.png");
+  
+  imgCorn = loadImage("corn.png");
+  imgWheat = loadImage("wheat.png");
+  imgOats = loadImage("oats.png");
 }
 
-
+// DRAWING
 void draw() {  
+  // DRAW TITLE SCREEN
   if (argoScreen == 0) {
     Title t = new Title();
     t.drawTitleScreen();
-  } else if (argoScreen == 1) {
+  } 
+  
+  // DRAW INSTRUCTIONS (MANUAL) TAB
+  else if (argoScreen == 1) {
     Manual m = new Manual();
     m.showCropInfo();
-  } else if (argoScreen == 2) {
+  } 
+  
+  // DRAW MAIN SCREEN
+  else if (argoScreen == 2) {
     drawBackground();
-  }
-
-  drawCrops();
-  drawSunMoon();
+    drawSunMoon();
+    drawCrops();
+  }  
 }
 
 
@@ -119,15 +133,17 @@ void drawBackground() {
 
 void drawSunMoon() { //tied to GUI "DNbutton"
   //sun & moon
-  if (clicked) { 
+  if (clicked == true) { 
     image(imgMoon, 690, 80, width/6, height/4.5);
   } else {
     image(imgSun, 690, 80, width/6, height/4.5);
   }
 }
 
+
 void drawCrops() {
 }
+
 
 void clear() {
   startProgram();

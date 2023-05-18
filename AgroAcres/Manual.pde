@@ -1,6 +1,6 @@
 class Manual {
   float buttonX = 300;
-  float buttonY = 400;
+  float buttonY = height - 100;
   float buttonW = 300; // width
   float buttonH = 50; //height 
   int nextLine = 15;
@@ -23,7 +23,7 @@ class Manual {
     fill(212, 100, 41);
     textSize(40);
     textAlign(CENTER);
-    text("BEGIN", width/2, 440);
+    text("BEGIN", width/2, height-60);
 
     // MAIN TITLE
     fill(255);
@@ -39,6 +39,8 @@ class Manual {
     textSize(15);
     text("Corn grows best in warm, sunny weather with moderate rain.", indent, height/5+nextTitle);
     text("For best results, plant in loam soil between around springtime to harvest in early fall.", indent, height/5 + nextLine+nextTitle);
+    
+    image(imgCorn, 690, 80, width/6, height/4.5);
 
     // PRINTING OAT CROP INFORMATION
     textSize(20);
@@ -48,6 +50,8 @@ class Manual {
     textSize(15);
     text("Oats also prefer warm, sunny weather with moderate rain. They grow best in fertile, well-drained soil.", indent, height/3+nextLine);  
     text("They should be planted during late summer and harvested in mid-summer of the following year.", indent, height/3+nextLine+nextTitle);
+    
+    image(imgOats, 690, 160, width/6, height/4.5);
 
     // PRINTING WHEAT CROP INFORMATION
     textSize(20);
@@ -57,5 +61,7 @@ class Manual {
     textSize(15);
     text("Wheat grows best in warm temperatures with moderate rain.", indent, (height/2)+nextLine);
     text("They should be planted in clay loam in spring or fall to be harvested in the summer.", indent, (height/2)+nextLine+nextTitle);
+    
+    image(imgWheat, 690, 240, width/6, height/4.5);
   }
 }
