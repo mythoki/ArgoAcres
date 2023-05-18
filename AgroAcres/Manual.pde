@@ -10,7 +10,7 @@ class Manual {
   void showCropInfo() {
     background(212, 100, 41);
 
-    //button
+    // BUTTON
     fill(255);
     noStroke();
     rect(buttonX, buttonY, buttonW, buttonH);
@@ -19,13 +19,13 @@ class Manual {
         argoScreen = 2;
       }
     }
-    //button text
+    // BUTTON TEXT
     fill(212, 100, 41);
     textSize(40);
     textAlign(CENTER);
     text("BEGIN", width/2, 440);
 
-    // title
+    // MAIN TITLE
     fill(255);
     textSize(35);
     textAlign(CENTER);

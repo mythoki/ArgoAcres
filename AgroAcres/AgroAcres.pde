@@ -1,22 +1,29 @@
+// IMPORTING GUI
 import g4p_controls.*;
+
+// IMPORTING FONTS
 PFont mono;
+
+// IMPORTING IMAGES
 PImage imgSun, imgMoon;
 PImage imgCloudy, imgHeatwave, imgRain, imgSnow, imgStormy;
 
+// UNADJUSTABLE VARIABLES
 boolean clicked = true; //for GUI buttons 
 int argoScreen = 0; //set to title screen
 
-//season
+// season
 int season = 0;
 color bgColour = color(93, 194, 50);
 
-//temperature
+// temperature
 float temperature = 20;
 
 //crop
 int crop = 0;
 //Crop c1, c2, c3;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
+
 
 void setup() {
   size(900, 650);
@@ -34,6 +41,7 @@ void setup() {
   imgStormy = loadImage("stormy.png");
 }
 
+
 void draw() {  
   if (argoScreen == 0) {
     Title t = new Title();
@@ -49,6 +57,7 @@ void draw() {
   drawSunMoon();
 }
 
+
 void startProgram() {
   argoScreen = 2;
 }
@@ -58,6 +67,7 @@ void startProgram() {
 //    startProgram();
 //  }
 //}
+
 
 void drawBackground() {
   background( bgColour );
