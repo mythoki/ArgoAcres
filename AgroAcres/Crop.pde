@@ -9,9 +9,7 @@ class Crop {
     this.prefTempMax = prefMax;
   }
   
-  void colourCrop() {
-    float cropHealth;
-    
+  void colourCrop() {    
     
     if (this.prefTempMin <= temperature && this.prefTempMax >= temperature) {
       if (crop == 0){   //corn
@@ -29,8 +27,25 @@ class Crop {
     
     else {
       float avgPrefTemp = (this.prefTempMin + this.prefTempMax)/2;
-      cropHealth = abs(temperature - avgPrefTemp);
-      //change b colour value
+      float colourMultiplier = abs(temperature - avgPrefTemp)/2;
+      float cornBValue = 37;
+      float wheatBValue = 82;
+      float oatBValue = 156;
+      
+      if (crop == 0){
+        cornBValue += colourMultiplier;
+        color cropColour = color(219, 198, cornBValue);
+      }
+      
+      if (crop == 1){
+        wheatBValue += colourMultiplier;
+        color cropColour = color(171, 156, wheatBValue);
+      }
+      
+      if (crop == 2){
+        oatBValue += colourMultiplier;
+        color cropColour = color(217, 211, oatBValue);
+      }
       
     }
       
