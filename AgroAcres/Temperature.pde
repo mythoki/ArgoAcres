@@ -1,6 +1,9 @@
 class Weather {
   
-  void selectWeather(){
+
+  void selectWeather() {
+    
+    
     // cloudy
     // heatwave
     // rain
@@ -8,5 +11,5 @@ class Weather {
     // stormy
     // sunny
     //if (
-  }  
+  }
 }

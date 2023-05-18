@@ -1,23 +1,37 @@
 import g4p_controls.*;
+PFont mono;
+PImage imgSun, imgMoon;
+PImage imgCloudy, imgHeatwave, imgRain, imgSnow, imgStormy;
 
-boolean clicked = true;
-int argoScreen = 0;
+boolean clicked = true; //for GUI buttons 
+int argoScreen = 0; //set to title screen
+
+//season
 int season = 0;
+color bgColour = color(93, 194, 50);
+
+//temperature
 float temperature = 20;
+
+//crop
 int crop = 0;
-PFont mono; 
 //Crop c1, c2, c3;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
-color bgColour = color(93, 194, 50);
-
-
 void setup() {
   size(900, 650);
-  //noLoop();
   createGUI();
   mono = loadFont("Serif.bold-48.vlw"); //text font file
   textFont(mono);
+
+  //sun & moon image
+  imgSun = loadImage("sun.png");
+  imgMoon = loadImage("moon.png");
+  imgCloudy = loadImage("cloudy.png");
+  imgHeatwave = loadImage("heatwave.png");
+  imgRain = loadImage("rain.png");
+  imgSnow = loadImage("snow.png"); 
+  imgStormy = loadImage("stormy.png");
 }
 
 void draw() {  
@@ -30,8 +44,9 @@ void draw() {
   } else if (argoScreen == 2) {
     drawBackground();
   }
-  
+
   drawCrops();
+  drawSunMoon();
 }
 
 void startProgram() {
@@ -92,12 +107,20 @@ void drawBackground() {
   }
 }
 
-void drawCrops() {
+void drawSunMoon() { //tied to GUI "DNbutton"
+  //sun & moon
+  if (clicked) { 
+    image(imgMoon, 690, 80, width/6, height/4.5);
+  } else {
+    image(imgSun, 690, 80, width/6, height/4.5);
+  }
+}
 
+void drawCrops() {
 }
 
 void clear() {
-startProgram();
-bgColour = color(93, 194, 50);
-  
+  startProgram();
+  bgColour = color(93, 194, 50);
+  //day = true;
 }
