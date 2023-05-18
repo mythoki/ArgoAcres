@@ -22,7 +22,6 @@ float temperature = 20;
 
 //crop
 int crop = 0;
-//Crop c1, c2, c3;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
 // SETUP
@@ -144,7 +143,22 @@ void drawSunMoon() { //tied to GUI "DNbutton"
 }
 
 void drawCrops() {
+  //if arraylist only has one, color all that one colour
+  if (myCrops.size() == 1){
+    myCrops.get(0).colourCrop();
+  }
   
+  //if arraylist has two, find which two and split two colours
+  if (myCrops.size() == 2){
+    for (int i = 0; i<3; i++){
+      
+    }
+  }
+  
+  //if arraylist has length three, split evenly into three 
+  if (myCrops.size() == 3){
+    
+  }
 }
 
 
