@@ -135,11 +135,11 @@ void drawSunMoon() { //tied to GUI "DNbutton"
   //sun & moon
   if (clicked == true) { 
     image(imgMoon, 690, 80, width/6, height/4.5);
-  } else {
+  } 
+  else {
     image(imgSun, 690, 80, width/6, height/4.5);
   }
 }
-
 
 void drawCrops() {
 }
