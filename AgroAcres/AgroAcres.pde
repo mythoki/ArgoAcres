@@ -12,11 +12,13 @@ PImage imgCorn, imgWheat, imgOats;
 // UNADJUSTABLE VARIABLES
 boolean clicked = true; //for GUI buttons 
 boolean weatherClicked = true; 
-boolean showimage = false; //for weather images
-boolean showimage2 = false; 
-boolean showimage3 = false; 
-boolean showimage4 = false; 
-boolean showimage5 = false; 
+
+// displaying weather images
+boolean showimage = false;  // cloudy 
+boolean showimage2 = false; // heat wave
+boolean showimage3 = false; // rain
+boolean showimage4 = false; // snow
+boolean showimage5 = false; // stormy
 
 // INITAL SCREEN 
 int argoScreen = 0; //set to title screen
@@ -67,6 +69,7 @@ void draw() {
   // DRAW TITLE SCREEN
   if (argoScreen == 0) {
     Title t = new Title(300, 350, 300, 50);
+      float buttonX = 300;
     t.drawTitleScreen();
   } 
 
