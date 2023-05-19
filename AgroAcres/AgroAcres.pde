@@ -29,7 +29,7 @@ color bgColour = color(93, 194, 50);
 float temperature = 20;
 
 // CROP VARIABLES
-int crop = 0;
+int crop;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
 //---------------------------//
@@ -167,6 +167,7 @@ void selectCloudy() {
   } else {
   }
 }
+
 void selectHeat() {  
   if (showimage2 == true) {
     image(imgHeatwave, 640, 180, width/3.5, height/3);
@@ -207,13 +208,48 @@ void drawCrops() {
 
   //if arraylist has two, find which two and split two colours
   if (myCrops.size() == 2) {
-    for (int i = 0; i<3; i++) {
+    int cropX = 120;
+    int cropY = 110;
+    int d = 30;
+    int h = 428;
+    int index = 0;
+    noStroke();
+    
+    for (int i=0; i<2; i++) {
+      for (int j=0; j<3; j++) {
+        myCrops.get(index).colourCrop();
+        circle(cropX, cropY, d);
+        circle(cropX, cropY+h, d);
+        rect(cropX - d/2, cropY, d, h);
+        
+        cropX += 87;
+      }
+      index++;
     }
   }
 
   //if arraylist has length three, split evenly into three 
   if (myCrops.size() == 3) {
+    int cropX = 120;
+    int cropY = 110;
+    int d = 30;
+    int h = 428;
+    int index = 0;
+    noStroke();
+    
+    for (int i=0; i<3; i++) {
+      for (int j=0; j<2; j++) {
+        myCrops.get(index).colourCrop();
+        circle(cropX, cropY, d);
+        circle(cropX, cropY+h, d);
+        rect(cropX - d/2, cropY, d, h);
+        
+        cropX += 87;
+      }
+      index++;
+    }
   }
+  
 }
 
 //---------------------------//

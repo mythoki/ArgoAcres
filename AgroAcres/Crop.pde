@@ -1,6 +1,5 @@
 class Crop {
   String type; //corn, wheat etc
-  color cropColour;
   float prefTempMin, prefTempMax;
 
   Crop(String t, float prefMin, float prefMax) {
@@ -12,16 +11,16 @@ class Crop {
   void colourCrop() {    
     
     if (this.prefTempMin <= temperature && this.prefTempMax >= temperature) {
-      if (crop == 0){   //corn
-        color cropColour = color(219, 198, 37);
+      if (this.type == "Corn"){ 
+        fill(219, 198, 37);
       }
       
-      if (crop == 1){   //wheat
-        color cropColour = color(171, 156, 82);
+      if (this.type == "Wheat"){
+        fill(171, 156, 82);
       }
       
-      if (crop == 2){   //oats
-        color cropColour = color(217, 211, 156);
+      if (this.type == "Oats"){
+        fill(217, 211, 156);
       }
     }
     
@@ -32,19 +31,19 @@ class Crop {
       float wheatBValue = 82;
       float oatBValue = 156;
       
-      if (crop == 0){
+      if (this.type == "Corn"){
         cornBValue += colourMultiplier;
-        color cropColour = color(219, 198, cornBValue);
+        fill(219, 198, cornBValue);
       }
       
-      if (crop == 1){
+      if (this.type == "Wheat"){
         wheatBValue += colourMultiplier;
-        color cropColour = color(171, 156, wheatBValue);
+        fill(171, 156, wheatBValue);
       }
       
-      if (crop == 2){
+      if (this.type == "Oats"){
         oatBValue += colourMultiplier;
-        color cropColour = color(217, 211, oatBValue);
+        fill(217, 211, oatBValue);
       }
       
     }
