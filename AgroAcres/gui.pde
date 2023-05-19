@@ -23,30 +23,63 @@ public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:te
 } //_CODE_:tempSlider:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
-    image(imgCloudy, 690, 220, width/6, height/4.5);
-  
-
+  if ( weatherClicked ) {
+    showimage = true;
+    showimage2 = false;
+    showimage3 = false;
+    showimage4 = false;
+    showimage5 = false;
+    selectCloudy();
+  } else  {
+  }
 } //_CODE_:CloudyW:235106:
 
 public void heatWeather(GOption source, GEvent event) { //_CODE_:HWW:515739:
-    image(imgHeatwave, 640, 180, width/3.5, height/3);
-    println("HIIII");
+  if ( weatherClicked ) {
+    showimage2 = true;
+    showimage = false;
+    showimage3 = false;
+    showimage4 = false;
+    showimage5 = false;
+    selectHeat();
+  } else {
+  }
 } //_CODE_:HWW:515739:
 
 public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:791619:
-    image(imgRain, 610, 155, width/3, height/2.5);
-
-
+  if ( weatherClicked ) {
+    showimage3 = true;
+    showimage = false;
+    showimage2 = false;
+    showimage4 = false;
+    showimage5 = false;
+    selectRain(); 
+  } else  {
+  }
 } //_CODE_:RW:791619:
 
 public void snowyWeather(GOption source, GEvent event) { //_CODE_:SW:627880:
-    image(imgSnow, 690, 220, width/6, height/4.5);
-  
+if ( weatherClicked ) {
+    showimage4 = true;
+    showimage = false;
+    showimage2 = false;
+    showimage3 = false;
+    showimage5 = false;
+    selectSnow(); 
+  } else  {
+  }
 } //_CODE_:SW:627880:
 
 public void stormyWeather(GOption source, GEvent event) { //_CODE_:STW:858856:
-    image(imgStormy, 660, 140, width/3.5, height/2.5);
-  
+ if ( weatherClicked ) {
+    showimage5 = true;
+    showimage = false;
+    showimage2 = false;
+    showimage3 = false;
+    showimage4 = false;
+    selectStormy(); 
+  } else {
+  }
 } //_CODE_:STW:858856:
 
 public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:

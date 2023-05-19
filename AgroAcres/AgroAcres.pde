@@ -11,24 +11,35 @@ PImage imgCorn, imgWheat, imgOats;
 
 // UNADJUSTABLE VARIABLES
 boolean clicked = true; //for GUI buttons 
+boolean weatherClicked = true; 
+boolean showimage = false; //for weather images
+boolean showimage2 = false; 
+boolean showimage3 = false; 
+boolean showimage4 = false; 
+boolean showimage5 = false; 
+
+// INITAL SCREEN 
 int argoScreen = 0; //set to title screen
 
-// season
+// SEASON VARIABLES 
 int season = 0;
 color bgColour = color(93, 194, 50);
 
-// temperature
+// TEMPERATURE VARIABLES
 float temperature = 20;
 
-//crop
+// CROP VARIABLES
 int crop = 0;
 ArrayList<Crop> myCrops = new ArrayList<Crop>();
 
-// SETUP
+//---------------------------//
+//-----------SETUP-----------//
+//---------------------------//
+
 void setup() {
   size(900, 650);
   createGUI();
-  
+
   // LOADING FONTS
   mono = loadFont("Serif.bold-48.vlw"); //text font file
   textFont(mono);
@@ -36,54 +47,55 @@ void setup() {
   // LOADING IMAGES
   imgSun = loadImage("sun.png");
   imgMoon = loadImage("moon.png");
-  
+
   imgCloudy = loadImage("cloudy.png");
   imgHeatwave = loadImage("heatwave.png");
   imgRain = loadImage("rain.png");
   imgSnow = loadImage("snow.png"); 
   imgStormy = loadImage("stormy.png");
-  
+
   imgCorn = loadImage("corn.png");
   imgWheat = loadImage("wheat.png");
   imgOats = loadImage("oats.png");
 }
 
-// DRAWING
+//---------------------------//
+//----------SCREENS----------//
+//---------------------------//
+
 void draw() {  
   // DRAW TITLE SCREEN
   if (argoScreen == 0) {
     Title t = new Title();
     t.drawTitleScreen();
   } 
-  
+
   // DRAW INSTRUCTIONS (MANUAL) TAB
   else if (argoScreen == 1) {
     Manual m = new Manual();
     m.showCropInfo();
   } 
-  
+
   // DRAW MAIN SCREEN
   else if (argoScreen == 2) {
     drawBackground();
     drawSunMoon();
     drawCrops();
-    Weather t = new Weather();
-    t.selectWeather();
-  }  
-}
 
+    selectHeat();
+    selectRain();
+    selectSnow();
+    selectCloudy();
+    selectStormy();
+  }
+}
 
 void startProgram() {
   argoScreen = 2;
 }
-
-//void mousePressed() {
-//   if ( argoScreen == 1) {
-//    startProgram();
-//  }
-//}
-
-
+//---------------------------//
+//----DRAWING BACKGROUND----///
+//---------------------------//
 void drawBackground() {
   background( bgColour );
 
@@ -132,38 +144,88 @@ void drawBackground() {
   }
 }
 
+//---------------------------//
+//-----DRAWING DAY/NIGHT-----//
+//---------------------------//
+
 void drawSunMoon() { //tied to GUI "DNbutton"
   //sun & moon
   if (clicked == true) { 
     image(imgMoon, 690, 80, width/6, height/4.5);
-  } 
-  else {
+  } else {
     image(imgSun, 690, 80, width/6, height/4.5);
   }
 }
 
-void drawCrops() {
-  //if arraylist only has one, color all that one colour
-  if (myCrops.size() == 1){
-    myCrops.get(0).colourCrop();
+//---------------------------//
+//--DRAWING WEATHER OPTIONS--//
+//---------------------------//
+
+void selectCloudy() {
+  if (showimage == true) {
+    image(imgCloudy, 690, 220, width/6, height/4.5);
+  } else {
   }
-  
-  //if arraylist has two, find which two and split two colours
-  if (myCrops.size() == 2){
-    for (int i = 0; i<3; i++){
-      
-    }
-  }
-  
-  //if arraylist has length three, split evenly into three 
-  if (myCrops.size() == 3){
-    
+}
+void selectHeat() {  
+  if (showimage2 == true) {
+    image(imgHeatwave, 640, 180, width/3.5, height/3);
+  } else {
   }
 }
 
+void selectRain() {
+  if (showimage3 == true) {
+    image(imgRain, 610, 155, width/3, height/2.5);
+  } else {
+  }
+}
+
+void selectSnow() {
+  if (showimage4 == true) {
+    image(imgSnow, 690, 220, width/6, height/4.5);
+  } else {
+  }
+}
+
+void selectStormy() {
+  if (showimage5 == true) {
+    image(imgStormy, 650, 140, width/3.5, height/2.5);
+  } else {
+  }
+}
+
+//---------------------------//
+//-------DRAWING CROPS-------//
+//---------------------------//
+
+void drawCrops() {
+  //if arraylist only has one, color all that one colour
+  if (myCrops.size() == 1) {
+    myCrops.get(0).colourCrop();
+  }
+
+  //if arraylist has two, find which two and split two colours
+  if (myCrops.size() == 2) {
+    for (int i = 0; i<3; i++) {
+    }
+  }
+
+  //if arraylist has length three, split evenly into three 
+  if (myCrops.size() == 3) {
+  }
+}
+
+//---------------------------//
+//-----------CLEAR-----------//
+//---------------------------//
 
 void clear() {
   startProgram();
   bgColour = color(93, 194, 50);
-  //day = true;
+  showimage = true;
+  showimage2 = false;
+  showimage3 = false;
+  showimage4 = false; 
+  showimage5 = false; 
 }
