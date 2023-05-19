@@ -93,9 +93,11 @@ void draw() {
 void startProgram() {
   argoScreen = 2;
 }
+
 //---------------------------//
 //----DRAWING BACKGROUND----///
 //---------------------------//
+
 void drawBackground() {
   background( bgColour );
 
@@ -108,8 +110,9 @@ void drawBackground() {
   circle(600, 75, 40);
   circle(600, 575, 40);
   circle(75, 575, 40);
-
-  fill(216, 241, 242);
+  
+  //info box
+  fill(159, 171, 245);
   rect(650, 75, 225, 500);
   rect(670, 55, 190, 540);
   circle(670, 75, 40);
