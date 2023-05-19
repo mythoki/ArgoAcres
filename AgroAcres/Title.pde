@@ -1,9 +1,13 @@
 class Title {
-  float buttonX = 300;
-  float buttonY = 350;
-  float buttonW = 300; // width
-  float buttonH = 50; //height
+  float buttonX, buttonY, buttonW, buttonH;
 
+  Title(int bx, int by, int bw, int bh){
+    this.buttonX = bx;
+    this.buttonY = by;
+    this.buttonW = bw;
+    this.buttonH = bh;
+  }
+  
   void drawTitleScreen() {
     background(212, 100, 41);
     fill(255);

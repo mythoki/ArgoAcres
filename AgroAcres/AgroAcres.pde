@@ -66,7 +66,7 @@ void setup() {
 void draw() {  
   // DRAW TITLE SCREEN
   if (argoScreen == 0) {
-    Title t = new Title();
+    Title t = new Title(300, 350, 300, 50);
     t.drawTitleScreen();
   } 
 
