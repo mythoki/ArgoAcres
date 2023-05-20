@@ -1,9 +1,11 @@
 class Manual {
+  // dimensions for buttons
   float buttonX = 300;
   float buttonY = height - 200;
   float buttonW = 300; // width
   float buttonH = 50; //height 
   
+  // spacing values between text on screen
   int nextLine = 15;
   int nextTitle = 30;
   int nextParagraph = 50;

@@ -25,12 +25,12 @@ class Title {
     //title
     textSize(100);
     textAlign(CENTER);
-    text("ARGOACRES", width/2, height/2);
+    text("AGROACRES", width/2, height/2);
 
     //button text
     fill(212, 100, 41);
-    textSize(25);
+    textSize(20);
     textAlign(CENTER);
-    text("FARMER'S ALMANAC", width/2, 385);
+    text("VIEW FARMER'S ALMANAC", width/2, 380);
   }
 }
