@@ -120,7 +120,7 @@ void drawBackground() {
   circle(75, 575, 40);
   
   //info box
-  fill(159, 171, 245);
+  fill(250, 242, 130);
   rect(650, 75, 225, 500);
   rect(670, 55, 190, 540);
   circle(670, 75, 40);
@@ -270,7 +270,7 @@ void drawCrops() {
 void clear() {
   startProgram();
   bgColour = color(93, 194, 50);
-  showimage = true;
+  showimage = false;
   showimage2 = false;
   showimage3 = false;
   showimage4 = false; 
