@@ -9,7 +9,7 @@ PImage imgSun, imgMoon;
 PImage imgCloudy, imgHeatwave, imgRain, imgSnow, imgStormy;
 PImage imgCorn, imgWheat, imgOats;
 
-// UNADJUSTABLE VARIABLES
+// UNADJUSTABLE VARIABLES FOR GUI
 boolean clicked = true; //for GUI buttons 
 boolean weatherClicked = true; 
 
@@ -19,6 +19,11 @@ boolean showimage2 = false; // heat wave
 boolean showimage3 = false; // rain
 boolean showimage4 = false; // snow
 boolean showimage5 = false; // stormy
+
+// crop conditions
+String cornCond = "normal";
+String oatCond = "normal";
+String wheatCond = "normal";
 
 // INITAL SCREEN 
 int argoScreen = 0; //set to title screen

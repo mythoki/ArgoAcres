@@ -3,6 +3,7 @@ class Manual {
   float buttonY = height - 200;
   float buttonW = 300; // width
   float buttonH = 50; //height 
+  
   int nextLine = 15;
   int nextTitle = 30;
   int nextParagraph = 50;

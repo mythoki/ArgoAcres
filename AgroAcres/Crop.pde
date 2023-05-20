@@ -1,6 +1,7 @@
 class Crop {
   String type; //corn, wheat etc
   float prefTempMin, prefTempMax;
+  float factor = 1; // factor affecting how quickly the crops adjust to temperature changes
 
   Crop(String t, float prefMin, float prefMax) {
     this.type = t;
@@ -44,9 +45,7 @@ class Crop {
       if (this.type == "Oats"){
         oatBValue += colourMultiplier;
         fill(217, 211, oatBValue);
-      }
-      
-    }
-      
+      }      
+    }    
   }
 }

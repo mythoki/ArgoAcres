@@ -19,7 +19,37 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 } //_CODE_:MainTab:504404:
 
 public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:tempSlider:211877:
-  temperature = tempSlider.getValueF();
+  
+  temperature = tempSlider.getValueF();  
+  
+  // if the temperature is too warm (more than 30 degrees)
+  if (temperature > 30){
+   cornCond = "wilt";
+   oatCond = "wilt";
+   wheatCond = "wilt";
+  }
+  
+  // if the temperature is too cold (less than 20 degrees)
+  if (temperature < 20){
+   cornCond = "freeze";
+   oatCond = "freeze";
+   wheatCond = "freeze";
+  }
+  
+  // if the temperature is ideal (between 20 to 30 degrees)
+  if (temperature >= 20 && temperature <= 30){
+    if (temperature > 25){
+      oatCond = "hot";
+      wheatCond = "hot"; 
+      cornCond = "normal";
+    }
+    
+    else {
+      oatCond = "normal";
+      wheatCond = "normal";
+      cornCond = "normal";
+    }
+  }  
 } //_CODE_:tempSlider:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
