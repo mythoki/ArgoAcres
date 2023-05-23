@@ -1,5 +1,4 @@
-
-
+//@@ -1,338 +1,340 @@
 /* =========================================================
  * ====                   WARNING                        ===
  * =========================================================
@@ -32,35 +31,29 @@ temperature = tempSlider.getValueF();
    wheatCond = "wilt";
    //s.season_click = "Spring";
   }
-
-  temperature = tempSlider.getValueF();  
-
-  // if the temperature is too warm (more than 30 degrees)
-  if (temperature > 30) {
-    cornCond = "wilt";
-    oatCond = "wilt";
-    wheatCond = "wilt";
-  }
-
+  
   // if the temperature is too cold (less than 20 degrees)
-  if (temperature < 20) {
-    cornCond = "freeze";
-    oatCond = "freeze";
-    wheatCond = "freeze";
+  if (temperature < 20){
+   cornCond = "freeze";
+   oatCond = "freeze";
+   wheatCond = "freeze";
   }
-
+  
   // if the temperature is ideal (between 20 to 30 degrees)
-  if (temperature >= 20 && temperature <= 30) {
-    if (temperature > 25) {
+  if (temperature >= 20 && temperature <= 30){
+    if (temperature > 25){
       oatCond = "hot";
       wheatCond = "hot"; 
       cornCond = "normal";
-    } else {
+    }
+    
+    else {
       oatCond = "normal";
       wheatCond = "normal";
       cornCond = "normal";
     }
-  }
+  }  
+  
 } //_CODE_:tempSlider:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
@@ -71,7 +64,7 @@ public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106
     showimage4 = false;
     showimage5 = false;
     selectCloudy();
-  } else {
+  } else  {
   }
 } //_CODE_:CloudyW:235106:
 
@@ -94,75 +87,60 @@ public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:791619:
     showimage2 = false;
     showimage4 = false;
     showimage5 = false;
-    selectRain();
-  } else {
+    selectRain(); 
+  } else  {
   }
 } //_CODE_:RW:791619:
 
 public void snowyWeather(GOption source, GEvent event) { //_CODE_:SW:627880:
-  if ( weatherClicked ) {
+if ( weatherClicked ) {
     showimage4 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage5 = false;
-    selectSnow();
-  } else {
+    selectSnow(); 
+  } else  {
   }
 } //_CODE_:SW:627880:
 
 public void stormyWeather(GOption source, GEvent event) { //_CODE_:STW:858856:
-  if ( weatherClicked ) {
+ if ( weatherClicked ) {
     showimage5 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
-    selectStormy();
+    selectStormy(); 
   } else {
   }
 } //_CODE_:STW:858856:
 
 public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:
-  if ( weatherClicked ) {
+if ( weatherClicked ) {
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
     showimage5 = false;
-  } else {
+  } else  {
   }
 } //_CODE_:SUW:543056:
 
+public void Corn_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
+  //Crop c = new Crop("Corn", 15, 28);
+  //myCrops.add(c);
+} //_CODE_:Corn:591166:
 
+public void Oats_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
+  //Crop o = new Crop("Oats", 20, 25);
+  //myCrops.add(o);
+} //_CODE_:Oats:608444:
 
-public void crop_click(GDropList source, GEvent event) { //_CODE_:CropDrop:841737:
-  println("CropDrop - GDropList >> GEvent." + event + " @ " + millis());
-
-} //_CODE_:CropDrop:841737:
-
-
-//public void Corn_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
-//  if ( Corn.isSelected() ) {
-//    Crop c = new Crop("Corn", 15, 28, false);
-//    myCrops.add(c);
-//    drawCrops();
-//    println("HI");
-//  }
-  
-//} //_CODE_:Corn:591166:
-
-//public void Oats_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
-//  Crop o = new Crop("Oats", 20, 25, false);
-//  myCrops.add(o);
-//  drawCrops();
-//} //_CODE_:Oats:608444:
-
-//public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
-//  Crop w = new Crop("Wheat", 21, 24, false);
-//  myCrops.add(w);
-//  drawCrops();
-//}
+public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
+  //Crop w = new Crop("Wheat", 21, 24);
+  //myCrops.add(w);
+}
 
 public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:Wheat:206827:
  if ( clicked ) {
@@ -179,6 +157,7 @@ public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:Wheat:2068
 
 public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
  argoScreen = 1;
+
   if ( clicked ) {
     clicked = true;
     Resetbutton.setText("Back to home");
@@ -289,6 +268,24 @@ public void createGUI(){
   weather.addControl(STW);
   weather.addControl(SUW);
   SUW.setSelected(true);
+  Corn = new GCheckbox(MainTab, 20, 40, 100, 20);
+  Corn.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Corn.setText("Corn");
+  Corn.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Corn.setOpaque(true);
+  Corn.addEventHandler(this, "Corn_clicked");
+  Oats = new GCheckbox(MainTab, 20, 60, 100, 20);
+  Oats.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Oats.setText("Oats");
+  Oats.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Oats.setOpaque(true);
+  Oats.addEventHandler(this, "Oats_clicked");
+  Wheat = new GCheckbox(MainTab, 20, 80, 100, 20);
+  Wheat.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Wheat.setText("Wheat");
+  Wheat.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Wheat.setOpaque(true);
+  Wheat.addEventHandler(this, "Wheat_clicked");
   DNbutton = new GButton(MainTab, 30, 115, 80, 30);
   DNbutton.setText("Night");
   DNbutton.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
@@ -314,10 +311,6 @@ public void createGUI(){
   SeasonDrop.setItems(loadStrings("list_246162"), 1);
   SeasonDrop.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   SeasonDrop.addEventHandler(this, "season_click");
-  CropDrop = new GDropList(MainTab, 20, 20, 100, 80, 3, 10);
-  CropDrop.setItems(loadStrings("list_841737"), 0);
-  CropDrop.setLocalColorScheme(GCScheme.RED_SCHEME);
-  CropDrop.addEventHandler(this, "crop_click");
   MainTab.loop();
 }
 
@@ -335,10 +328,12 @@ GOption RW;
 GOption SW; 
 GOption STW; 
 GOption SUW; 
+GCheckbox Corn; 
+GCheckbox Oats; 
+GCheckbox Wheat; 
 GButton DNbutton; 
 GLabel TempCold_label; 
 GLabel TempHot_label; 
-GButton Manbutton;
+GButton Manbutton; 
 GButton Resetbutton; 
 GDropList SeasonDrop; 
-GDropList CropDrop;

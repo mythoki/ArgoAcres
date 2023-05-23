@@ -245,14 +245,14 @@ void drawCrops() {
     if (myCrops.get(0).equals("Corn")) {
       // myCrops.get(0).colourCorn();
       print("Ahhh!");
-    }
-
-    if (myCrops.get(0).equals("Wheat"))
+    } 
+     if (myCrops.get(0).equals("Wheat"))
       //myCrops.get(0).colourWheat();
 
-      if (myCrops.get(0).equals("Oats"))
+     if (myCrops.get(0).equals("Oats"));
         // myCrops.get(0).colourOats();
-      }
+      
+  }
 
       //if arraylist has two, find which two and split two colours
       if (myCrops.size() == 2) {
