@@ -1,5 +1,5 @@
 class Temperature {
-  Crop crop;
+  // change background depending on temperature??
   
   // if temperature is below 20 degrees c
     // have plants slowly turn blue, display freezing crop image
