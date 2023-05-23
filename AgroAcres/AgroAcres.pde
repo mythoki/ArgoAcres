@@ -65,7 +65,7 @@ void setup() {
   imgCorn = loadImage("corn.png");
   imgWheat = loadImage("wheat.png");
   imgOats = loadImage("oats.png");
-  
+
   imgIce = loadImage("ice.png");
   imgFire = loadImage("fire.pmg");
 }
@@ -78,7 +78,7 @@ void draw() {
   // DRAW TITLE SCREEN
   if (argoScreen == 0) {
     Title t = new Title(300, 350, 300, 50);
-      float buttonX = 300;
+    float buttonX = 300;
     t.drawTitleScreen();
   } 
 
@@ -122,7 +122,7 @@ void drawBackground() {
   circle(600, 75, 40);
   circle(600, 575, 40);
   circle(75, 575, 40);
-  
+
   //info box
   fill(250, 242, 130);
   rect(650, 75, 225, 500);
@@ -160,15 +160,14 @@ void drawSunMoon() { //tied to GUI "DNbutton"
   //sun & moon
   if (clicked == true) { 
     image(imgMoon, 690, 80, width/6, height/4.5); // adding image
-    
+
     fill(0); // adding text title to clarify the meaning of the symbol
     textSize(20);
     textAlign(RIGHT);
     text("NIGHT", 800, 235);
-    
   } else {
     image(imgSun, 690, 80, width/6, height/4.5);
-    
+
     fill(0);
     textSize(20);
     textAlign(RIGHT);
@@ -244,46 +243,46 @@ void drawCrops() {
   println("myCrops has size", myCrops.size());
   if (myCrops.size() == 1) {
     if (myCrops.get(0).equals("Corn")) {
-      myCrops.get(0).colourCorn();
+      // myCrops.get(0).colourCorn();
       print("Ahhh!");
     }
-    
-    if (myCrops.get(0).equals("Wheat"))
-      myCrops.get(0).colourWheat();
-      
-    if (myCrops.get(0).equals("Oats"))
-      myCrops.get(0).colourOats();
-  }
 
-  //if arraylist has two, find which two and split two colours
-  if (myCrops.size() == 2) {
-    int cropX = 120;
-    int cropY = 110;
-    int d = 30;
-    int h = 428;
-    int index = 0;
-    noStroke();
-    
-    for (int i=0; i<2; i++) {
-      for (int j=0; j<3; j++) {
-        if (myCrops.get(index).equals("Corn"))
-          myCrops.get(index).colourCorn();
-          
-        if (myCrops.get(index).equals("Wheat"))
-          myCrops.get(index).colourWheat();
-          
-        if (myCrops.get(index).equals("Oats"))
-          myCrops.get(index).colourOats();
-          
-        circle(cropX, cropY, d);
-        circle(cropX, cropY+h, d);
-        rect(cropX - d/2, cropY, d, h);
-        
-        cropX += 87;
+    if (myCrops.get(0).equals("Wheat"))
+      //myCrops.get(0).colourWheat();
+
+      if (myCrops.get(0).equals("Oats"))
+        // myCrops.get(0).colourOats();
       }
-      index++;
-    }
-  }
+
+      //if arraylist has two, find which two and split two colours
+      if (myCrops.size() == 2) {
+        int cropX = 120;
+        int cropY = 110;
+        int d = 30;
+        int h = 428;
+        int index = 0;
+        noStroke();
+
+        for (int i=0; i<2; i++) {
+          for (int j=0; j<3; j++) {
+            if (myCrops.get(index).equals("Corn"))
+              // myCrops.get(index).colourCorn();
+
+              if (myCrops.get(index).equals("Wheat"))
+                // myCrops.get(index).colourWheat();
+
+                if (myCrops.get(index).equals("Oats"))
+                  // myCrops.get(index).colourOats();
+
+                  circle(cropX, cropY, d);
+            circle(cropX, cropY+h, d);
+            rect(cropX - d/2, cropY, d, h);
+
+            cropX += 87;
+          }
+          index++;
+        }
+      }
 
   //if arraylist has length three, split evenly into three 
   if (myCrops.size() == 3) {
@@ -293,28 +292,27 @@ void drawCrops() {
     int h = 428;
     int index = 0;
     noStroke();
-    
+
     for (int i=0; i<3; i++) {
       for (int j=0; j<2; j++) {
         if (myCrops.get(index).equals("Corn"))
-          myCrops.get(index).colourCorn();
-          
-        if (myCrops.get(index).equals("Wheat"))
-          myCrops.get(index).colourWheat();
-          
-        if (myCrops.get(index).equals("Oats"))
-          myCrops.get(index).colourOats();
-          
-        circle(cropX, cropY, d);
+          // myCrops.get(index).colourCorn();
+
+          if (myCrops.get(index).equals("Wheat"))
+            // myCrops.get(index).colourWheat();
+
+            if (myCrops.get(index).equals("Oats"))
+              //  myCrops.get(index).colourOats();
+
+              circle(cropX, cropY, d);
         circle(cropX, cropY+h, d);
         rect(cropX - d/2, cropY, d, h);
-        
+
         cropX += 87;
       }
       index++;
     }
   }
-  
 }
 
 //---------------------------//
@@ -328,5 +326,5 @@ void clear() {
   showimage2 = false;
   showimage3 = false;
   showimage4 = false; 
-  showimage5 = false; 
+  showimage5 = false;
 }
