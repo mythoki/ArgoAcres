@@ -8,6 +8,7 @@ PFont mono;
 PImage imgSun, imgMoon;
 PImage imgCloudy, imgHeatwave, imgRain, imgSnow, imgStormy;
 PImage imgCorn, imgWheat, imgOats;
+PImage imgIce, imgFire;
 
 // UNADJUSTABLE VARIABLES FOR GUI
 boolean clicked = true; //for GUI buttons 
@@ -64,6 +65,9 @@ void setup() {
   imgCorn = loadImage("corn.png");
   imgWheat = loadImage("wheat.png");
   imgOats = loadImage("oats.png");
+  
+  imgIce = loadImage("ice.png");
+  imgFire = loadImage("fire.pmg");
 }
 
 //---------------------------//

@@ -30,7 +30,7 @@ temperature = tempSlider.getValueF();
    oatCond = "wilt";
    wheatCond = "wilt";
    //s.season_click = "Spring";
-=======
+  }
 
   temperature = tempSlider.getValueF();  
 
