@@ -21,12 +21,14 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:tempSlider:211877:
   
 temperature = tempSlider.getValueF();  
+  //season_click s = new season_click();
   
   // if the temperature is too warm (more than 30 degrees)
   if (temperature > 30){
    cornCond = "wilt";
    oatCond = "wilt";
    wheatCond = "wilt";
+   //s.season_click = "Spring";
   }
   
   // if the temperature is too cold (less than 20 degrees)
@@ -171,16 +173,16 @@ clear();
 
 public void season_click(GDropList source, GEvent event) { //_CODE_:SeasonDrop:246162:
 String s = SeasonDrop.getSelectedText();
-  if (s.equals("Spring")) //spring
+  if (s.equals("Spring") || temperature >= 10 && temperature <= 20) //spring
     bgColour = color(93, 194, 50);
 
-  if (s.equals("Summer")) //summer
+  if (s.equals("Summer") || temperature >= 30) //summer
     bgColour = color(50, 168, 82);
 
-  if (s.equals("Winter")) //winter
+  if (s.equals("Winter") || temperature <= 0) //winter
     bgColour = color(150, 200, 233);
     
-  if (s.equals("Autumn")) //autumn 
+  if (s.equals("Autumn") || temperature <= 10 && temperature > 0) //autumn 
     bgColour = color(200, 60, 40);
 } //_CODE_:SeasonDrop:246162:
 

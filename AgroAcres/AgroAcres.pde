@@ -162,9 +162,20 @@ void drawBackground() {
 void drawSunMoon() { //tied to GUI "DNbutton"
   //sun & moon
   if (clicked == true) { 
-    image(imgMoon, 690, 80, width/6, height/4.5);
+    image(imgMoon, 690, 80, width/6, height/4.5); // adding image
+    
+    fill(0); // adding text title to clarify the meaning of the symbol
+    textSize(20);
+    textAlign(RIGHT);
+    text("NIGHT", 800, 235);
+    
   } else {
     image(imgSun, 690, 80, width/6, height/4.5);
+    
+    fill(0);
+    textSize(20);
+    textAlign(RIGHT);
+    text("DAY", 800, 235);
   }
 }
 
@@ -174,35 +185,55 @@ void drawSunMoon() { //tied to GUI "DNbutton"
 
 void selectCloudy() {
   if (showimage == true) {
-    image(imgCloudy, 690, 220, width/6, height/4.5);
+    image(imgCloudy, 690, 220, width/6, height/4);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("CLOUDY", 760, 360);
   } else {
   }
 }
 
 void selectHeat() {  
   if (showimage2 == true) {
-    image(imgHeatwave, 640, 180, width/3.5, height/3);
+    image(imgHeatwave, 640, 200, width/3.5, height/3);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HEAT WAVE", 760, 375);
   } else {
   }
 }
 
 void selectRain() {
   if (showimage3 == true) {
-    image(imgRain, 610, 155, width/3, height/2.5);
+    image(imgRain, 610, 180, width/3, height/2.5);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RAINY", 760, 400);
   } else {
   }
 }
 
 void selectSnow() {
   if (showimage4 == true) {
-    image(imgSnow, 690, 220, width/6, height/4.5);
+    image(imgSnow, 690, 250, width/6, height/4.5);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("SNOW", 760, 400);
   } else {
   }
 }
 
 void selectStormy() {
   if (showimage5 == true) {
-    image(imgStormy, 650, 140, width/3.5, height/2.5);
+    image(imgStormy, 650, 180, width/3.5, height/2.5);    
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("STORMY", 760, 420);
   } else {
   }
 }
