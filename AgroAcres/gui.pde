@@ -19,6 +19,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 } //_CODE_:MainTab:504404:
 
 public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:tempSlider:211877:
+<<<<<<< Updated upstream
   
 temperature = tempSlider.getValueF();  
   //season_click s = new season_click();
@@ -29,30 +30,37 @@ temperature = tempSlider.getValueF();
    oatCond = "wilt";
    wheatCond = "wilt";
    //s.season_click = "Spring";
+=======
+
+  temperature = tempSlider.getValueF();  
+
+  // if the temperature is too warm (more than 30 degrees)
+  if (temperature > 30) {
+    cornCond = "wilt";
+    oatCond = "wilt";
+    wheatCond = "wilt";
+>>>>>>> Stashed changes
   }
-  
+
   // if the temperature is too cold (less than 20 degrees)
-  if (temperature < 20){
-   cornCond = "freeze";
-   oatCond = "freeze";
-   wheatCond = "freeze";
+  if (temperature < 20) {
+    cornCond = "freeze";
+    oatCond = "freeze";
+    wheatCond = "freeze";
   }
-  
+
   // if the temperature is ideal (between 20 to 30 degrees)
-  if (temperature >= 20 && temperature <= 30){
-    if (temperature > 25){
+  if (temperature >= 20 && temperature <= 30) {
+    if (temperature > 25) {
       oatCond = "hot";
       wheatCond = "hot"; 
       cornCond = "normal";
-    }
-    
-    else {
+    } else {
       oatCond = "normal";
       wheatCond = "normal";
       cornCond = "normal";
     }
-  }  
-  
+  }
 } //_CODE_:tempSlider:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
@@ -63,7 +71,7 @@ public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106
     showimage4 = false;
     showimage5 = false;
     selectCloudy();
-  } else  {
+  } else {
   }
 } //_CODE_:CloudyW:235106:
 
@@ -86,91 +94,77 @@ public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:791619:
     showimage2 = false;
     showimage4 = false;
     showimage5 = false;
-    selectRain(); 
-  } else  {
+    selectRain();
+  } else {
   }
 } //_CODE_:RW:791619:
 
 public void snowyWeather(GOption source, GEvent event) { //_CODE_:SW:627880:
-if ( weatherClicked ) {
+  if ( weatherClicked ) {
     showimage4 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage5 = false;
-    selectSnow(); 
-  } else  {
+    selectSnow();
+  } else {
   }
 } //_CODE_:SW:627880:
 
 public void stormyWeather(GOption source, GEvent event) { //_CODE_:STW:858856:
- if ( weatherClicked ) {
+  if ( weatherClicked ) {
     showimage5 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
-    selectStormy(); 
+    selectStormy();
   } else {
   }
 } //_CODE_:STW:858856:
 
 public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:
-if ( weatherClicked ) {
+  if ( weatherClicked ) {
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
     showimage5 = false;
-  } else  {
+  } else {
   }
 } //_CODE_:SUW:543056:
 
 public void Corn_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
-  Crop c = new Crop("Corn", 15, 28);
-  myCrops.add(c);
+  if ( Corn.isSelected() ) {
+    Crop c = new Crop("Corn", 15, 28, false);
+    myCrops.add(c);
+    drawCrops();
+    println("HI");
+  }
+  
 } //_CODE_:Corn:591166:
 
 public void Oats_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
-  Crop o = new Crop("Oats", 20, 25);
+  Crop o = new Crop("Oats", 20, 25, false);
   myCrops.add(o);
+  drawCrops();
 } //_CODE_:Oats:608444:
 
 public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
-  Crop w = new Crop("Wheat", 21, 24);
+  Crop w = new Crop("Wheat", 21, 24, false);
   myCrops.add(w);
+  drawCrops();
 }
 
-public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:Wheat:206827:
- if ( clicked ) {
-    clicked = false;
-    DNbutton.setText("Night");
-    drawSunMoon();
-  } 
-  else {
-    clicked = true;
-    DNbutton.setText("Day");
-    drawSunMoon();
-  }
-} //_CODE_:DNbutton:688493:
+//public void dN_buttonClicked(GButton source, GEvent event) } //_CODE_:Wheat:206827:
 
-public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
- argoScreen = 1;
+//public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
 
-  if ( clicked ) {
-    clicked = true;
-    Resetbutton.setText("Back to home");
-  }
-} //_CODE_:Manbutton:763312:
+//public void Man_buttonClicked(GButton source, GEvent event) } //_CODE_:DNbutton:688493:
 
-public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
-clear();
-  if ( clicked) {
-    clicked = false;
-    Resetbutton.setText("Reset");
-  }
-} //_CODE_:Resetbutton:237767:
+//public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
 
+<<<<<<< Updated upstream
 public void season_click(GDropList source, GEvent event) { //_CODE_:SeasonDrop:246162:
 String s = SeasonDrop.getSelectedText();
   if (s.equals("Spring") || temperature >= 10 && temperature <= 20) //spring
@@ -185,6 +179,18 @@ String s = SeasonDrop.getSelectedText();
   if (s.equals("Autumn") || temperature <= 10 && temperature > 0) //autumn 
     bgColour = color(200, 60, 40);
 } //_CODE_:SeasonDrop:246162:
+=======
+//public void Reset_buttonClicked(GButton source, GEvent event) } //_CODE_:Manbutton:763312:
+
+//public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Resetbutton:237767:
+
+//public void season_click(GDropList source, GEvent event) } //_CODE_:Resetbutton:237767:
+
+//public void season_click(GDropList source, GEvent event) { //_CODE_:SeasonDrop:246162:
+//  println("SeasonDrop - GDropList >> GEvent." + event + " @ " + millis());
+//} //_CODE_:SeasonDrop:246162:
+
+>>>>>>> Stashed changes
 
 
 // Create all the GUI controls. 
