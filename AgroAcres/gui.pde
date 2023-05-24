@@ -6,9 +6,9 @@
  * designer and care should be taken when editing this file.
  * Only add/edit code inside the event handlers i.e. only
  * use lines between the matching comment tags. e.g.
-
+ 
  void myBtnEvents(GButton button) { //_CODE_:button1:12356:
-     // It is safe to enter your event code here  
+ // It is safe to enter your event code here  
  } //_CODE_:button1:12356:
  
  * Do not rename this tab!
@@ -20,43 +20,41 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 } //_CODE_:MainTab:504404:
 
 public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:tempSlider:211877:
-  
-temperature = tempSlider.getValueF();  
+
+  temperature = tempSlider.getValueF();  
   //season_click s = new season_click();
-  
+
   // if the temperature is too warm (more than 30 degrees)
-  if (temperature > 30){
-   cornCond = "wilt";
-   oatCond = "wilt";
-   wheatCond = "wilt";
-   //s.season_click = "Spring";
+  if (temperature > 30) {
+    cornCond = "wilt";
+    oatCond = "wilt";
+    wheatCond = "wilt";
+    //s.season_click = "Spring";
   }
-  
+
   // if the temperature is too cold (less than 20 degrees)
-  if (temperature < 20){
-   cornCond = "freeze";
-   oatCond = "freeze";
-   wheatCond = "freeze";
+  if (temperature < 20) {
+    cornCond = "freeze";
+    oatCond = "freeze";
+    wheatCond = "freeze";
   }
-  
+
   // if the temperature is ideal (between 20 to 30 degrees)
-  if (temperature >= 20 && temperature <= 30){
-    if (temperature > 25){
+  if (temperature >= 20 && temperature <= 30) {
+    if (temperature > 25) {
       oatCond = "hot";
       wheatCond = "hot"; 
       cornCond = "normal";
-    }
-    
-    else {
+    } else {
       oatCond = "normal";
       wheatCond = "normal";
       cornCond = "normal";
     }
-  }  
-  
+  }
 } //_CODE_:tempSlider:211877:
 
 public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106:
+  //when cloudy weather is selected, show image & delete other images 
   if ( weatherClicked ) {
     showimage = true;
     showimage2 = false;
@@ -64,11 +62,12 @@ public void cloudWeather(GOption source, GEvent event) { //_CODE_:CloudyW:235106
     showimage4 = false;
     showimage5 = false;
     selectCloudy();
-  } else  {
+  } else {
   }
 } //_CODE_:CloudyW:235106:
 
 public void heatWeather(GOption source, GEvent event) { //_CODE_:HWW:515739:
+  //when heatwave weather is selected, show image & delete other images
   if ( weatherClicked ) {
     showimage2 = true;
     showimage = false;
@@ -81,49 +80,53 @@ public void heatWeather(GOption source, GEvent event) { //_CODE_:HWW:515739:
 } //_CODE_:HWW:515739:
 
 public void rainWeather(GOption source, GEvent event) { //_CODE_:RW:791619:
+  //when rainy weather is selected, show image & delete other images
   if ( weatherClicked ) {
     showimage3 = true;
     showimage = false;
     showimage2 = false;
     showimage4 = false;
     showimage5 = false;
-    selectRain(); 
-  } else  {
+    selectRain();
+  } else {
   }
 } //_CODE_:RW:791619:
 
 public void snowyWeather(GOption source, GEvent event) { //_CODE_:SW:627880:
-if ( weatherClicked ) {
+  //when snowy weather is selected, show image & delete other images
+  if ( weatherClicked ) {
     showimage4 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage5 = false;
-    selectSnow(); 
-  } else  {
+    selectSnow();
+  } else {
   }
 } //_CODE_:SW:627880:
 
 public void stormyWeather(GOption source, GEvent event) { //_CODE_:STW:858856:
- if ( weatherClicked ) {
+  //when stormy weather is selected, show image & delete other images
+  if ( weatherClicked ) {
     showimage5 = true;
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
-    selectStormy(); 
+    selectStormy();
   } else {
   }
 } //_CODE_:STW:858856:
 
 public void sunnyWeather(GOption source, GEvent event) { //_CODE_:SUW:543056:
-if ( weatherClicked ) {
+  //when sunny weather is selected, delete all images
+  if ( weatherClicked ) {
     showimage = false;
     showimage2 = false;
     showimage3 = false;
     showimage4 = false;
     showimage5 = false;
-  } else  {
+  } else {
   }
 } //_CODE_:SUW:543056:
 
@@ -143,53 +146,55 @@ public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:20682
 }
 
 public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:Wheat:206827:
- if ( clicked ) {
+  //when button is clicked
+  if ( clicked ) {
     clicked = false;
-    DNbutton.setText("Night");
-    drawSunMoon();
-  } 
-  else {
+    DNbutton.setText("Night"); //rename it night
+    drawSunMoon(); //draw sun
+  } else { //otherwise
     clicked = true;
-    DNbutton.setText("Day");
-    drawSunMoon();
+    DNbutton.setText("Day"); //rename it day
+    drawSunMoon(); //draw moon
   }
 } //_CODE_:DNbutton:688493:
 
 public void Man_buttonClicked(GButton source, GEvent event) { //_CODE_:DNbutton:688493:
- argoScreen = 1;
+  argoScreen = 1; // main screen
 
-  if ( clicked ) {
-    clicked = true;
-    Resetbutton.setText("Back to home");
+  if ( clicked ) { //ONLY when button is clicked
+    clicked = true; 
+    Resetbutton.setText("Back to home"); //make it say "back to home"
   }
 } //_CODE_:Manbutton:763312:
 
 public void Reset_buttonClicked(GButton source, GEvent event) { //_CODE_:Manbutton:763312:
-clear();
-  if ( clicked) {
+  clear(); //clear everything
+  if ( clicked) { //when button is clicked
     clicked = false;
-    Resetbutton.setText("Reset");
+    Resetbutton.setText("Reset"); //set text to say reset
   }
 } //_CODE_:Resetbutton:237767:
 
 public void season_click(GDropList source, GEvent event) { //_CODE_:SeasonDrop:246162:
-String s = SeasonDrop.getSelectedText();
+  String s = SeasonDrop.getSelectedText(); //calling on variables 
+  
+  //when temperature is between these settings, it will also change the background colour 
   if (s.equals("Spring") || temperature >= 10 && temperature <= 20) //spring
-    bgColour = color(93, 194, 50);
+    bgColour = color(93, 194, 50); //change background colour to light green
 
   if (s.equals("Summer") || temperature >= 30) //summer
-    bgColour = color(50, 168, 82);
+    bgColour = color(50, 168, 82); //change background colour to darker green
 
   if (s.equals("Winter") || temperature <= 0) //winter
-    bgColour = color(150, 200, 233);
-    
+    bgColour = color(150, 200, 233); //change background colour to light blue
+
   if (s.equals("Autumn") || temperature <= 10 && temperature > 0) //autumn 
-    bgColour = color(200, 60, 40);
+    bgColour = color(200, 60, 40); //change background colour to red
 } //_CODE_:SeasonDrop:246162:
 
 // Create all the GUI controls. 
 // autogenerated do not edit
-public void createGUI(){
+public void createGUI() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
