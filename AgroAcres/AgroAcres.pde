@@ -159,178 +159,21 @@ void drawBackground() {
 }
 
 //---------------------------//
-//-----DRAWING DAY/NIGHT-----//
-//---------------------------//
-
-void drawSunMoon() { //tied to GUI "DNbutton"
-  //sun & moon
-  if (clicked == true) { 
-    image(imgMoon, 690, 80, width/6, height/4.5); // adding image
-
-    fill(0); // adding text title to clarify the meaning of the symbol
-    textSize(20);
-    textAlign(RIGHT);
-    text("NIGHT", 800, 235);
-  } else {
-    image(imgSun, 690, 80, width/6, height/4.5);
-
-    fill(0);
-    textSize(20);
-    textAlign(RIGHT);
-    text("DAY", 800, 235);
-  }
-}
-
-//---------------------------//
-//--DRAWING WEATHER OPTIONS--//
-//---------------------------//
-
-void selectCloudy() {
-  if (showimage == true) {
-    image(imgCloudy, 690, 220, width/6, height/4);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("CLOUDY", 760, 360);
-  } else {
-  }
-}
-
-void selectHeat() {  
-  if (showimage2 == true) {
-    image(imgHeatwave, 640, 200, width/3.5, height/3);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HEAT WAVE", 760, 375);
-  } else {
-  }
-}
-
-void selectRain() {
-  if (showimage3 == true) {
-    image(imgRain, 610, 180, width/3, height/2.5);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RAINY", 760, 400);
-  } else {
-  }
-}
-
-void selectSnow() {
-  if (showimage4 == true) {
-    image(imgSnow, 690, 250, width/6, height/4.5);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("SNOW", 760, 400);
-  } else {
-  }
-}
-
-void selectStormy() {
-  if (showimage5 == true) {
-    image(imgStormy, 650, 180, width/3.5, height/2.5);    
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("STORMY", 760, 420);
-  } else {
-  }
-}
-
-//---------------------------//
-//-------DRAWING CROPS-------//
-//---------------------------//
-
-void drawCrops() {
-  //if arraylist only has one, color all that one colour
-  println("myCrops has size", myCrops.size());
-  if (myCrops.size() == 1) {
-    if (myCrops.get(0).equals("Corn")) {
-      // myCrops.get(0).colourCorn();
-      print("Ahhh!");
-    } 
-     if (myCrops.get(0).equals("Wheat"))
-      //myCrops.get(0).colourWheat();
-
-     if (myCrops.get(0).equals("Oats"));
-        // myCrops.get(0).colourOats();
-      
-  }
-
-      //if arraylist has two, find which two and split two colours
-      if (myCrops.size() == 2) {
-        int cropX = 120;
-        int cropY = 110;
-        int d = 30;
-        int h = 428;
-        int index = 0;
-        noStroke();
-
-        for (int i=0; i<2; i++) {
-          for (int j=0; j<3; j++) {
-            if (myCrops.get(index).equals("Corn"))
-              // myCrops.get(index).colourCorn();
-
-              if (myCrops.get(index).equals("Wheat"))
-                // myCrops.get(index).colourWheat();
-
-                if (myCrops.get(index).equals("Oats"))
-                  // myCrops.get(index).colourOats();
-
-                  circle(cropX, cropY, d);
-            circle(cropX, cropY+h, d);
-            rect(cropX - d/2, cropY, d, h);
-
-            cropX += 87;
-          }
-          index++;
-        }
-      }
-
-  //if arraylist has length three, split evenly into three 
-  if (myCrops.size() == 3) {
-    int cropX = 120;
-    int cropY = 110;
-    int d = 30;
-    int h = 428;
-    int index = 0;
-    noStroke();
-
-    for (int i=0; i<3; i++) {
-      for (int j=0; j<2; j++) {
-        if (myCrops.get(index).equals("Corn"))
-          // myCrops.get(index).colourCorn();
-
-          if (myCrops.get(index).equals("Wheat"))
-            // myCrops.get(index).colourWheat();
-
-            if (myCrops.get(index).equals("Oats"))
-              //  myCrops.get(index).colourOats();
-
-              circle(cropX, cropY, d);
-        circle(cropX, cropY+h, d);
-        rect(cropX - d/2, cropY, d, h);
-
-        cropX += 87;
-      }
-      index++;
-    }
-  }
-}
-
-//---------------------------//
 //-----------CLEAR-----------//
 //---------------------------//
 
-void clear() {
+void clear() { // resets program settings
   startProgram();
   bgColour = color(93, 194, 50);
+  
+  // resets weather conditions
   showimage = false;
   showimage2 = false;
   showimage3 = false;
   showimage4 = false; 
   showimage5 = false;
+  
+  // resets crop conditions
+  showIce = false;
+  showFire = false;
 }
