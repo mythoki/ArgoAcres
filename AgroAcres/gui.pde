@@ -128,18 +128,18 @@ if ( weatherClicked ) {
 } //_CODE_:SUW:543056:
 
 public void Corn_clicked(GCheckbox source, GEvent event) { //_CODE_:Corn:591166:
-  //Crop c = new Crop("Corn", 15, 28);
-  //myCrops.add(c);
+  Crop c = new Crop("Corn", 15, 28);
+  myCrops.add(c);
 } //_CODE_:Corn:591166:
 
 public void Oats_clicked(GCheckbox source, GEvent event) { //_CODE_:Oats:608444:
-  //Crop o = new Crop("Oats", 20, 25);
-  //myCrops.add(o);
+  Crop o = new Crop("Oats", 20, 25);
+  myCrops.add(o);
 } //_CODE_:Oats:608444:
 
 public void Wheat_clicked(GCheckbox source, GEvent event) { //_CODE_:Wheat:206827:
-  //Crop w = new Crop("Wheat", 21, 24);
-  //myCrops.add(w);
+  Crop w = new Crop("Wheat", 21, 24);
+  myCrops.add(w);
 }
 
 public void dN_buttonClicked(GButton source, GEvent event) { //_CODE_:Wheat:206827:
