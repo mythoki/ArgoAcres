@@ -21,6 +21,9 @@ boolean showimage3 = false; // rain
 boolean showimage4 = false; // snow
 boolean showimage5 = false; // stormy
 
+boolean showIce = false;
+boolean showFire = false;
+
 // crop conditions
 String cornCond = "normal";
 String oatCond = "normal";
@@ -67,7 +70,7 @@ void setup() {
   imgOats = loadImage("oats.png");
 
   imgIce = loadImage("ice.png");
-  imgFire = loadImage("fire.pmg");
+  imgFire = loadImage("fire.png");
 }
 
 //---------------------------//
@@ -101,6 +104,7 @@ void draw() {
     selectStormy();
     
     temperatureAdjustments();
+    tempImageAdjustments();
   }
 }
 
