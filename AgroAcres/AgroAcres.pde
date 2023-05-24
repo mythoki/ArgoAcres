@@ -99,6 +99,8 @@ void draw() {
     selectSnow();
     selectCloudy();
     selectStormy();
+    
+    temperatureAdjustments();
   }
 }
 
