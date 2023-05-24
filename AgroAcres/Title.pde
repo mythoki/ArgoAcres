@@ -1,5 +1,5 @@
 class Title {
-  float buttonX, buttonY, buttonW, buttonH;
+  float buttonX, buttonY, buttonW, buttonH; // dimensions for button
 
   Title(int bx, int by, int bw, int bh){
     this.buttonX = bx;
@@ -15,7 +15,7 @@ class Title {
     //button
     fill(255);
     noStroke();
-    rect(buttonX, buttonY, buttonW, buttonH);
+    rect(buttonX, buttonY, buttonW, buttonH); // takes you to farmer's almanac/manual
     if (mousePressed) {
       if (mouseX>buttonX && mouseX <buttonX+buttonW && mouseY>buttonY && mouseY <buttonY+buttonH) {
         argoScreen = 1;

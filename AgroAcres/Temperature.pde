@@ -57,6 +57,8 @@ void tempImageAdjustments(){
 //--DRAWING WEATHER OPTIONS--//
 //---------------------------//
 
+// each option takes input from selection in GUI and displays an image to reflect the selection
+
 void selectCloudy() {
   if (showimage == true) {
     image(imgCloudy, 690, 220, width/6, height/4);

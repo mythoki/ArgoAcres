@@ -22,14 +22,12 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:MainT
 public void tempSlider_clicked(GCustomSlider source, GEvent event) { //_CODE_:tempSlider:211877:
 
   temperature = tempSlider.getValueF();  
-  //season_click s = new season_click();
 
   // if the temperature is too warm (more than 30 degrees)
   if (temperature > 30) {
     cornCond = "wilt";
     oatCond = "wilt";
     wheatCond = "wilt";
-    //s.season_click = "Spring";
   }
 
   // if the temperature is too cold (less than 20 degrees)
