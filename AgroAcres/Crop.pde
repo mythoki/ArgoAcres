@@ -15,6 +15,7 @@ class Crop {
     this.prefTempMax = prefMax;
   }
   
+  // DETERMINING COLOR FOR CERTAIN CROPS
   void colourCrop() {
     if (this.prefTempMin <= temperature && this.prefTempMax >= temperature) {
       if (this.type.equals("Corn")) 
