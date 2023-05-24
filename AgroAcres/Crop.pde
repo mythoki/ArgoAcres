@@ -62,8 +62,7 @@ class Crop {
        fill(217, 211, oatBValue);
        //this.chosen = true;
      } 
-  }
-     
+  }     
 }
 
 //---------------------------//

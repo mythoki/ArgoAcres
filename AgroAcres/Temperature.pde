@@ -30,13 +30,26 @@ void temperatureAdjustments() {
 void tempImageAdjustments(){
   if (showIce == true){ // if conditions are too cold
     image(imgIce, 690, 400, width/6, height/4.5);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("TOO COLD!", 760, 550);
+    text("CROPS FREEZING", 760, 575);    
+    
     showFire = false;
     showimage2 = false; // cannot have a heatwave during negative temperatures
   }
   
   if (showFire == true){ // if conditions are too warm
    image(imgFire, 690, 400, width/6, height/4.5); 
+   fill(0);
+   textSize(20);
+   textAlign(CENTER);
+   text("TOO HOT!", 760, 550);
+   text("CROPS WILTING", 760, 575);
+   
    showIce = false;
+   showimage4 = false; // cannot be snowy in a heat wave
   }
 }
 
